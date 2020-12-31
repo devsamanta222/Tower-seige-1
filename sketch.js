@@ -5,6 +5,7 @@ const Constraint = Matter.Constraint;
 
 var engine,world
 
+
 function setup(){
     var canvas=createCanvas(1200,700)
     engine = Engine.create();
@@ -36,19 +37,11 @@ function setup(){
     polygon=new Polygon(80,400,30)
 
     rope=new SlingShot(polygon.body,{x:80,y:400})
-}
 
-function mouseDragged(){
-    
-	Matter.Body.setPosition(polygon.body, {x: mouseX , y: mouseY});
+    ground= new Ground(600,690,1200,13)
 }
 
 
-
-function mouseReleased(){
-    rope.fly();
-   
-}
 
 function draw(){
     background(0)
@@ -79,6 +72,26 @@ function draw(){
 
     polygon.display()
 
+    ground.display()
+
     rope.display()
+
+    
+
+    
     
 }
+
+
+function mouseDragged(){
+    
+	Matter.Body.setPosition(polygon.body, {x: mouseX , y: mouseY});
+}
+
+
+
+function mouseReleased(){
+    rope.fly();
+   
+}
+
